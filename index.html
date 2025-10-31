@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil de usuario - Ejercicio práctico de HTML semántico con estructura completa">
+    <title>Perfil de Usuario - María González</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 1rem auto;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        main {
+            padding: 2rem;
+        }
+        
+        article {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        article h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        article p {
+            text-align: justify;
+            color: #555;
+        }
+        
+        .contact-section {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        thead {
+            background: #667eea;
+            color: white;
+        }
+        
+        thead th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        tbody td {
+            padding: 1rem;
+            color: #555;
+        }
+        
+        tbody td:first-child {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .form-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .form-section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 0.95rem;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                border-radius: 8px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header: Encabezado de la página -->
+        <header>
+            <h1>Perfil de Usuario</h1>
+            <p>Bienvenido a mi página personal</p>
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" 
+                 alt="Foto de perfil de María González" 
+                 class="profile-image">
+        </header>
+
+        <!-- Main: Contenido principal -->
+        <main>
+            <!-- Article: Biografía del usuario -->
+            <article>
+                <h2>Biografía</h2>
+                <p>
+                    Hola, soy María González, desarrolladora web full-stack con más de 5 años de experiencia 
+                    en la creación de aplicaciones web modernas y escalables. Me apasiona el desarrollo frontend 
+                    y disfruto trabajando con tecnologías como HTML5, CSS3, JavaScript y frameworks modernos 
+                    como React y Vue.js.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Durante mi carrera profesional, he trabajado en diversos proyectos que van desde sitios web 
+                    corporativos hasta aplicaciones empresariales complejas. Me especializo en crear interfaces 
+                    de usuario intuitivas y accesibles, siempre siguiendo las mejores prácticas de desarrollo 
+                    y diseño web. Además, soy una firme defensora del código limpio y la arquitectura de software 
+                    bien estructurada.
+                </p>
+            </article>
+
+            <!-- Sección de contacto con tabla -->
+            <section class="contact-section">
+                <h2>Información de Contacto</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Contacto</th>
+                            <th>Información</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email Personal</td>
+                            <td>maria.gonzalez@email.com</td>
+                        </tr>
+                        <tr>
+                            <td>Email Profesional</td>
+                            <td>maria.gonzalez@empresa.com</td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono Móvil</td>
+                            <td>+54 11 1234-5678</td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono Oficina</td>
+                            <td>+54 11 8765-4321</td>
+                        </tr>
+                        <tr>
+                            <td>LinkedIn</td>
+                            <td>linkedin.com/in/mariagonzalez</td>
+                        </tr>
+                        <tr>
+                            <td>GitHub</td>
+                            <td>github.com/mariagonzalez</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Formulario para actualizar perfil -->
+            <section class="form-section">
+                <h2>Actualizar Perfil</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" 
+                               id="nombre" 
+                               name="nombre" 
+                               placeholder="Ingrese su nombre completo"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               placeholder="ejemplo@email.com"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" 
+                               id="telefono" 
+                               name="telefono" 
+                               placeholder="+54 11 1234-5678"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="biografia">Biografía:</label>
+                        <textarea id="biografia" 
+                                  name="biografia" 
+                                  placeholder="Cuéntanos sobre ti..."
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer: Pie de página -->
+        <footer>
+            <p>&copy; 2024 María González. Todos los derechos reservados.</p>
+            <p>Ejercicio Práctico - <a href="#">Desarrollo Software Frontend</a></p>
+        </footer>
+    </div>
+</body>
+</html>
